@@ -1,0 +1,28 @@
+import random
+
+def juego_ppt():
+    name = input("Hi, what's your name? ")
+    options = ["rock", "paper", "scissors"]
+    user_selection = input(f"Hi {name}, Please choose rock, paper or scissors: ").lower()
+    cpu_selection = random.choice(options)
+
+    print("You chose:", user_selection)
+    print("CPU chose:", cpu_selection)
+
+    if user_selection not in options:
+        print("Wrong entry. Please choose rock, paper or scissors.")
+        return
+
+    if user_selection == cpu_selection:
+        print("It's a tie!")
+    elif (
+        (user_selection == "rock" and cpu_selection == "scissors") or
+        (user_selection == "paper" and cpu_selection == "rock") or
+        (user_selection == "scissors" and cpu_selection == "paper")
+    ):
+        print(f"Congrats, {name}! You won!")
+    else:
+        print(f"Sorry, {name}! You lost!")
+
+# Ejecutar el juego
+juego_ppt()
